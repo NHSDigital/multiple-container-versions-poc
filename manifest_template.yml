@@ -4,16 +4,16 @@ DESCRIPTION: example description
 APIGEE_ENVIRONMENTS:
   - name: internal-dev
     display_name: Internal Development
-  - name: internal-dev-sandbox
-    display_name: Internal Development Sandbox
-  - name: internal-qa
-    display_name: Internal QA
-  - name: internal-qa-sandbox
-    display_name: Internal QA Sandbox
-  - name: ref
-    display_name: Reference
-  - name: sandbox
-    display_name: Sandbox
+  # - name: internal-dev-sandbox
+  #   display_name: Internal Development Sandbox
+  # - name: internal-qa
+  #   display_name: Internal QA
+  # - name: internal-qa-sandbox
+  #   display_name: Internal QA Sandbox
+  # - name: ref
+  #   display_name: Reference
+  # - name: sandbox
+  #   display_name: Sandbox
 # Enable int environment when ready by uncommenting:
 #   - name: int
 #     display_name: Integration Testing
@@ -36,9 +36,7 @@ apigee:
         approvalType: auto
         attributes:
           - name: access
-            value: public
-            # For a parameterised example of rate limiting per environment,
-            # see https://github.com/NHSDigital/personal-demographics-service-api/blob/master/manifest_template.yml
+            value: private
           - name: ratelimiting
             value:
               {{ NAME }}:
@@ -60,19 +58,7 @@ apigee:
         environments: [ {{ ENV.name }} ]
         proxies:
           - {{ NAME }}
-          - identity-service-{{ ENV.name }}
-        scopes:
-          - 'urn:nhsd:apim:app:level3:{{ SERVICE_NAME }}'
-          - 'urn:nhsd:apim:user-nhs-id:aal3:{{ SERVICE_NAME }}'
-    specs:
-      - name: {{ NAME }}
-        path: {{ SERVICE_NAME }}.json
-    api_catalog:
-      - edgeAPIProductName: {{ NAME }}
-        anonAllowed: true
-        description: {{ DESCRIPTION }}
-        requireCallbackUrl: false
-        title: {{ TITLE }}
-        visibility: false
-        specId: {{ NAME }}
+        scopes: []
+    specs: []
+    api_catalog: []
 {% endfor %}
