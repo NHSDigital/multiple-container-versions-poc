@@ -1,0 +1,4 @@
+<APIProxy name="mcvp">
+  <!-- This is the root of the application -->
+  <Description>"multiple-container-versions-poc"</Description>
+</APIProxy>

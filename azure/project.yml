@@ -1,0 +1,4 @@
+variables:
+  service_name: multiple-container-versions-poc
+  short_service_name: mcvp
+  service_base_path: multiple-container-versions-poc
