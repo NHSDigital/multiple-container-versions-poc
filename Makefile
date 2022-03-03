@@ -7,11 +7,10 @@ install-python:
 	cp scripts/pre-commit .git/hooks/pre-commit
 
 # required
-install: install-node .git/hooks/pre-commit
+install: install-python .git/hooks/pre-commit
 
 # required
 lint:
-	npm run lint
 	find . -name '*.py' -not -path '**/.venv/*' | xargs poetry run flake8
 
 clean:
@@ -20,11 +19,9 @@ clean:
 
 # required
 publish: clean
-	mkdir -p build
-	npm run publish 2> /dev/null
 
 
-_dist_include="pytest.ini poetry.lock poetry.toml pyproject.toml Makefile"
+_dist_include="poetry.lock poetry.toml pyproject.toml Makefile"
 
 # required
 release: clean publish build-proxy
@@ -36,10 +33,6 @@ release: clean publish build-proxy
 
 test: docker-test
 	echo done
-
-smoketest:
-#	this target is for end to end smoketests this would be run 'post deploy' to verify an environment is working
-	poetry run pytest -v --junitxml=smoketest-report.xml -s -m smoketest
 
 
 docker-build:
