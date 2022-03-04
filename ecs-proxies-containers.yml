@@ -1,4 +1,7 @@
 docker_containers:
-  - name: sandbox
-    dockerfile: "sandbox/Dockerfile"
-    path: "sandbox"
+  - name: nginx
+    dockerfile: "docker/nginx/Dockerfile"
+    path: "docker/nginx"
+  - name: my-service
+    dockerfile: "docker/my-service/Dockerfile"
+    path: "docker/my-service"

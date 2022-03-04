@@ -1,0 +1,8 @@
+# # alpine builds from source instead of using wheels, which is much slower
+# FROM python:3.9-buster
+# COPY shared/requirements/poetry.txt /app/requirements.txt
+# WORKDIR /app
+# RUN pip install --no-cache-dir -r requirements.txt
+pip==22.0.2
+setuptools==60.7.1
+poetry==1.1.11

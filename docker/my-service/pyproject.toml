@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "my_service"
+version = "1.0.0"
+description = "A POC for routing to multiple API versions in APIM"
+authors = ["Ben Strutt <ben.strutt1@nhs.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.74.1"
+uvicorn = "^0.17.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
